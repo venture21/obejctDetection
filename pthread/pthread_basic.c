@@ -10,10 +10,12 @@ void *t_function(void *data)
 {
     int id;
     pthread_t t_id;
+    glob_var++;
     id = *((int *)data);
     t_id=pthread_self();
     printf("pid=%d, t_id=%lu, id=%d, glob_var=%d\n",getpid(),t_id,id,glob_var);
-    return (void*)(id*id);
+    return ((void*)(id*id));
+    //pthread_exit((void*)id);
 }
 
 int main(void)
